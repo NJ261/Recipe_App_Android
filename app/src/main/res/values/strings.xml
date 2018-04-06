@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assign4</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Search</string>
+    <string name="title_notifications">Create Recipe</string>
+    <string name="main_heading">Recipe App</string>
+</resources>

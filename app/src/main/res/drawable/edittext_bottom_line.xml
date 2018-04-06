@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:bottom="1dp"
+        android:left="-2dp"
+        android:right="-2dp"
+        android:top="-2dp">
+        <shape android:shape="rectangle" >
+            <stroke
+                android:width="0.5dp"
+                android:color="@color/colorGray" />
+        </shape>
+    </item>
+
+</layer-list>
+
+<!--
+https://stackoverflow.com/questions/25481244/how-add-a-border-only-on-bottom-of-edittext?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+-->

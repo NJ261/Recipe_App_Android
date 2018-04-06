@@ -1,8 +1,13 @@
 package com.example.nirav.assign4;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
+
+// https://developer.android.com/guide/topics/search/search-dialog.html#SearchableConfiguration
 public class search_recipe extends AppCompatActivity {
 
     @Override
@@ -11,11 +16,11 @@ public class search_recipe extends AppCompatActivity {
         setContentView(R.layout.activity_search_recipe);
     }
 
-    private android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener() {
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
-        public boolean onNavigationItemSelected(@android.support.annotation.NonNull android.view.MenuItem item) {
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             android.content.Intent in;
             switch (item.getItemId()) {
                 case R.id.navigation_home:

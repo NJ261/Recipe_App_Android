@@ -236,21 +236,38 @@
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
-            <Button
-                android:id="@+id/signUpBtn"
-                style="@style/login_btn_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="Create"
-                android:visibility="visible"
-                android:textSize="13sp"
-                android:textColor="@color/colorWhite"
-                android:background="@color/colorPrimary"/>
+            <FrameLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/saveChanges"
+                    style="@style/login_btn_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/url_description"
+                    android:text="Save"
+                    android:visibility="visible"
+                    android:textSize="13sp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginStart="100dp"
+                    android:background="@color/colorPrimary"/>
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    style="@style/login_btn_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/url_description"
+                    android:text="Cancel"
+                    android:visibility="visible"
+                    android:textSize="13sp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginStart="200dp"
+                    android:background="@color/colorPrimary"/>
+            </FrameLayout>
+
 
             <TextView
                 android:id="@+id/dummy_text"
@@ -281,6 +298,6 @@
 
 </android.support.constraint.ConstraintLayout>
 
-<!--
-2. https://stackoverflow.com/questions/25481244/how-add-a-border-only-on-bottom-of-edittext?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
--->
+    <!--
+    2. https://stackoverflow.com/questions/25481244/how-add-a-border-only-on-bottom-of-edittext?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+    -->

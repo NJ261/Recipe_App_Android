@@ -1,21 +1,60 @@
 package com.example.nirav.assign4;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-public class create_recipe extends MainActivity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
+public class create_recipe extends Activity {
+
+    //private FirebaseData appState;
+    Recipe receivedPersonInfo;
+
+    private EditText recipeTitle, ingredients, steps, foot_notes, nutrition_facts, link;
+
+    private Spinner ratings;
+
+    FirebaseDatabase database;
+
+    DatabaseReference emailRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_recipe);
 
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //receivedPersonInfo = (Recipe) getIntent().getSerializableExtra("Contact");
+        //appState = ((FirebaseData) getApplicationContext());
+
+        database = FirebaseDatabase.getInstance();
+        emailRef = database.getReference("Recipe");
+
+        recipeTitle = (EditText) findViewById(R.id.recipeTitle);
+        ingredients = (EditText) findViewById(R.id.ingredientsDescription);
+        steps = (EditText) findViewById(R.id.directionsDescription);
+        foot_notes = (EditText) findViewById(R.id.foot_notes_description);
+        nutrition_facts = (EditText) findViewById(R.id.neutrition_fact_description);
+        link = (EditText) findViewById(R.id.url_description);
+
+        ratings = (Spinner) findViewById(R.id.spinner1);
+        String[] items = new String[]{"*", "* *", "* * *", "* * * *", "* * * * *" };
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ratings.setAdapter(adapter);
+        ratings.setSelection(0);
     }
 
 
@@ -41,5 +80,28 @@ public class create_recipe extends MainActivity {
             return false;
         }
     };
+
+    public void createRecipeButton(View v) {
+        //each entry needs a unique ID
+        String name = recipeTitle.getText().toString();
+        String recipe_ingredients = ingredients.getText().toString();
+        String recipe_steps = steps.getText().toString();
+        String recipe_foot_notes = foot_notes.getText().toString();
+        String recipe_nutrition_facts = nutrition_facts.getText().toString();
+        String recipe_link = link.getText().toString();
+        String recipe_ratings = ratings.getSelectedItem().toString();
+
+        int hash = Objects.hash(name);
+
+        Recipe recipe = new Recipe(name, recipe_ingredients, recipe_steps, recipe_foot_notes,recipe_nutrition_facts,recipe_ratings,recipe_link);
+
+        emailRef.child(Integer.toString(hash)).setValue(recipe);
+        Toast.makeText(this, "Congratulations! New Recipe has been saved!", Toast.LENGTH_LONG).show();
+
+        android.content.Intent in3;
+        in3 = new android.content.Intent(getBaseContext(), create_recipe.class);
+        startActivity(in3);
+
+    }
 
 }

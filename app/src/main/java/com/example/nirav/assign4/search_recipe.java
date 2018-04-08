@@ -1,5 +1,6 @@
 package com.example.nirav.assign4;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,7 +8,7 @@ import android.view.MenuItem;
 
 
 // https://developer.android.com/guide/topics/search/search-dialog.html#SearchableConfiguration
-public class search_recipe extends MainActivity {
+public class search_recipe extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

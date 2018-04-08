@@ -18,9 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".create_recipe" />
-        <activity android:name=".search_recipe" />
-        <activity android:name=".edit_activity"></activity>
+        <activity
+            android:name=".create_recipe"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".search_recipe"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".edit_activity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

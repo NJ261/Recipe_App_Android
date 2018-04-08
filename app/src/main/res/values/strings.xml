@@ -8,7 +8,7 @@
     <string name="recipeName">Recipe Title</string>
     <string name="direction">Steps</string>
     <string name="foot_notes">Footnotes</string>
-    <string name="neutrition_fact">Neutrition Facts</string>
+    <string name="neutrition_fact">Nutrition Facts</string>
     <string name="ratings">Ratings</string>
     <string name="url">Web/Video Link</string>
     <string name="newRecipe">Create a new Recipe</string>

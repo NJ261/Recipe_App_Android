@@ -176,7 +176,7 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Mention Neutrion Facts about the recipe"
+                android:hint="Mention Nutrition Facts about the recipe"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -250,7 +250,8 @@
                 android:visibility="visible"
                 android:textSize="13sp"
                 android:textColor="@color/colorWhite"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary"
+                android:onClick="createRecipeButton"/>
 
             <TextView
                 android:id="@+id/dummy_text"

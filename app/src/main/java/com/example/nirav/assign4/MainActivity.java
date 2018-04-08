@@ -11,29 +11,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            android.content.Intent in;
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    in = new android.content.Intent(getBaseContext(), MainActivity.class);
-                    startActivity(in);
-                    return true;
-                case R.id.navigation_dashboard:
-                    in = new android.content.Intent(getBaseContext(), search_recipe.class);
-                    startActivity(in);
-                    return true;
-                case R.id.navigation_notifications:
-                    in = new android.content.Intent(getBaseContext(), create_recipe.class);
-                    startActivity(in);
-                    return true;
-            }
-            return false;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,5 +21,28 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+                case R.id.navigation_dashboard:
+                    android.content.Intent in2;
+                    in2 = new android.content.Intent(getBaseContext(), search_recipe.class);
+                    startActivity(in2);
+                    break;
+                case R.id.navigation_notifications:
+                    android.content.Intent in3;
+                    in3 = new android.content.Intent(getBaseContext(), create_recipe.class);
+                    startActivity(in3);
+                    break;
+            }
+            return false;
+        }
+    };
 
 }

@@ -16,6 +16,7 @@ public class search_recipe extends Activity {
         setContentView(R.layout.activity_search_recipe);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.getMenu().getItem(1).setChecked(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 

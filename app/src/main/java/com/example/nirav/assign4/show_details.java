@@ -46,7 +46,9 @@ public class show_details extends Activity {
         editBtn = (Button) findViewById(R.id.editBtn);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
 
         if(receivedPersonInfo != null) {
             recipe_name.setText(receivedPersonInfo.name); // getting user's saved data - name

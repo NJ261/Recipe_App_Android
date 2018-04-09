@@ -34,6 +34,7 @@ public class create_recipe extends Activity {
         setContentView(R.layout.activity_create_recipe);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.getMenu().getItem(2).setChecked(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //receivedPersonInfo = (Recipe) getIntent().getSerializableExtra("Contact");

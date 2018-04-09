@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
         database = FirebaseDatabase.getInstance();
         emailRef = database.getReference("Recipe");
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.getMenu().getItem(0).setChecked(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //Get the reference to the UI contents

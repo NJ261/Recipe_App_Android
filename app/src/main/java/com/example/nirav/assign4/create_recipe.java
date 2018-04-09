@@ -50,7 +50,7 @@ public class create_recipe extends Activity {
         link = (EditText) findViewById(R.id.url_description);
 
         ratings = (Spinner) findViewById(R.id.spinner1);
-        String[] items = new String[]{"*", "* *", "* * *", "* * * *", "* * * * *" };
+        String[] items = new String[]{"*", "* *", "* * *", "* * * *", "* * * * * (5 Stars)" };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         ratings.setAdapter(adapter);
         ratings.setSelection(0);

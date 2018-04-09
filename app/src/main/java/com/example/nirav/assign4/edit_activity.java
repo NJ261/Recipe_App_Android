@@ -1,20 +1,113 @@
 package com.example.nirav.assign4;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-public class edit_activity extends AppCompatActivity {
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
+
+public class edit_activity extends Activity {
+
+    private EditText edit_name, edit_ingridients, edit_steps, edit_foot_notes, edit_nutrition_facts, edit_ratings, edit_link;
+
+    Recipe receivedPersonInfo;
+    FirebaseDatabase database;
+    DatabaseReference emailRef;
+    private FirebaseListAdapter<Recipe> firebaseAdapter;
+    private Button saveBtn, deleteBtn;
+    private Spinner ratings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_activity);
 
+        receivedPersonInfo = (Recipe) getIntent().getSerializableExtra("Recipe");
+        database = FirebaseDatabase.getInstance();
+        emailRef = database.getReference("Recipe");
+
+        edit_name = (EditText) findViewById(R.id.edit_title);
+        edit_ingridients = (EditText) findViewById(R.id.edit_ingredients);
+        edit_steps = (EditText) findViewById(R.id.edit_steps);
+        edit_foot_notes = (EditText) findViewById(R.id.edit_foot_notes);
+        edit_nutrition_facts = (EditText) findViewById(R.id.edit_neutrition_fact);
+        edit_link = (EditText) findViewById(R.id.edit_url);
+
+        saveBtn = (Button) findViewById(R.id.saveBtn);
+        deleteBtn = (Button) findViewById(R.id.deleteBtn);
+
+        ratings = (Spinner) findViewById(R.id.edit_spinner1);
+        String[] items = new String[]{"*", "* *", "* * *", "* * * *", "* * * * * (5 Stars)" };
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ratings.setAdapter(adapter);
+        ratings.setSelection(0);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        if(receivedPersonInfo != null) {
+            edit_name.setText(receivedPersonInfo.name); // getting user's saved data - name
+            edit_ingridients.setText(receivedPersonInfo.ingredients); // getting user's saved data - email
+            edit_steps.setText(receivedPersonInfo.steps); // getting user's saved data - number
+            edit_foot_notes.setText(receivedPersonInfo.foot_notes); // getting user's saved data - address
+            edit_nutrition_facts.setText(receivedPersonInfo.nutrition_facts); // getting user's saved data - number
+            edit_link.setText(receivedPersonInfo.link); // getting user's saved data - address
+
+            int ratings_value = adapter.getPosition(receivedPersonInfo.ratings); // getting user's saved data - business type
+            ratings.setSelection(ratings_value);
+        }
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String name = edit_name.getText().toString();
+                String ingridients = edit_ingridients.getText().toString();
+                String steps = edit_steps.getText().toString();
+                String foot_notes = edit_foot_notes.getText().toString();
+                String nutrition_facts = edit_nutrition_facts.getText().toString();
+                String link = edit_link.getText().toString();
+
+                String edit_ratings = ratings.getSelectedItem().toString();
+
+                int hash = Objects.hash(name);
+
+                String totalData[] = {name, ingridients, steps, foot_notes, nutrition_facts, edit_ratings, link};
+                String totalDataField[] = {"name", "ingridients", "steps", "foot_notes", "nutrition_facts", "ratings", "link"};
+
+                for(int j=0; j<7; j++) {
+                    emailRef.child(Integer.toString(hash)).child(totalDataField[j]).setValue(totalData[j]);
+                }
+                Toast.makeText(edit_activity.this, "Changes Saved!!", Toast.LENGTH_LONG).show();
+                finish();
+
+            }
+        });
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String name = edit_name.getText().toString();
+                int hash = Objects.hash(name);
+                emailRef.child(Integer.toString(hash)).removeValue();
+                Toast.makeText(edit_activity.this, "Recipe Deleted!!", Toast.LENGTH_LONG).show();
+                finish();
+
+            }
+        });
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

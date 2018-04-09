@@ -20,7 +20,7 @@
                 android:id="@+id/profileTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/newRecipe"
+                android:text="Update your recipe"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
@@ -56,7 +56,6 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Enter your Recipe Name"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -86,7 +85,6 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Enter the Ingredients"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -116,7 +114,6 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Describe the steps for your recipe"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -146,7 +143,6 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Share a tip or advice for more delicious taste"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -176,7 +172,6 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Mention Nutrition Facts about the recipe"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -232,7 +227,6 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Save helpful Video or Web Site Link"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 

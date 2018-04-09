@@ -18,9 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends Activity {
 
     private TextView mTextMessage;
-
     private ListView contactListView;
-
     FirebaseDatabase database;
     DatabaseReference emailRef;
     private FirebaseListAdapter<Recipe> firebaseAdapter;

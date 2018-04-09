@@ -4,13 +4,13 @@
     <string name="title_dashboard">Search</string>
     <string name="title_notifications">Create Recipe</string>
     <string name="main_heading">Recipe App</string>
-    <string name="ingredients">Ingredients</string>
+    <string name="ingredients">Ingredients: </string>
     <string name="recipeName">Recipe Title</string>
-    <string name="direction">Steps</string>
-    <string name="foot_notes">Footnotes</string>
-    <string name="neutrition_fact">Nutrition Facts</string>
-    <string name="ratings">Ratings</string>
-    <string name="url">Web/Video Link</string>
+    <string name="direction">Steps: </string>
+    <string name="foot_notes">Footnotes: </string>
+    <string name="neutrition_fact">Nutrition Facts: </string>
+    <string name="ratings">Ratings: </string>
+    <string name="url">Web/Video Link: </string>
     <string name="newRecipe">Create a new Recipe</string>
 
 </resources>

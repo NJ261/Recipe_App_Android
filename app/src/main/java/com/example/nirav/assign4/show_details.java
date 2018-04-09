@@ -48,12 +48,12 @@ public class show_details extends Activity {
 
         if(receivedPersonInfo != null) {
             recipe_name.setText(receivedPersonInfo.name); // getting user's saved data - name
-            recipe_ingridients.setText(receivedPersonInfo.ingredients); // getting user's saved data - email
-            recipe_steps.setText(receivedPersonInfo.steps); // getting user's saved data - number
-            recipe_foot_notes.setText(receivedPersonInfo.foot_notes); // getting user's saved data - address
-            recipe_nutrition_facts.setText(receivedPersonInfo.nutrition_facts); // getting user's saved data - number
-            recipe_ratings.setText(receivedPersonInfo.ratings); // getting user's saved data - address
-            recipe_link.setText(receivedPersonInfo.link); // getting user's saved data - address
+            recipe_ingridients.setText(receivedPersonInfo.ingredients); // getting user's saved data - ingredients
+            recipe_steps.setText(receivedPersonInfo.steps); // getting user's saved data - steps to follow
+            recipe_foot_notes.setText(receivedPersonInfo.foot_notes); // getting user's saved data - foot notes
+            recipe_nutrition_facts.setText(receivedPersonInfo.nutrition_facts); // getting user's saved data - nutrition facts
+            recipe_ratings.setText(receivedPersonInfo.ratings); // getting user's saved data - ratings
+            recipe_link.setText(receivedPersonInfo.link); // getting user's saved data - web or video link
         }
 
         editBtn.setOnClickListener(new View.OnClickListener() {

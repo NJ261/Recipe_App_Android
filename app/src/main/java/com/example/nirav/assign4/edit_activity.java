@@ -1,6 +1,7 @@
 package com.example.nirav.assign4;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -59,13 +60,13 @@ public class edit_activity extends Activity {
 
         if(receivedPersonInfo != null) {
             edit_name.setText(receivedPersonInfo.name); // getting user's saved data - name
-            edit_ingridients.setText(receivedPersonInfo.ingredients); // getting user's saved data - email
-            edit_steps.setText(receivedPersonInfo.steps); // getting user's saved data - number
-            edit_foot_notes.setText(receivedPersonInfo.foot_notes); // getting user's saved data - address
-            edit_nutrition_facts.setText(receivedPersonInfo.nutrition_facts); // getting user's saved data - number
-            edit_link.setText(receivedPersonInfo.link); // getting user's saved data - address
+            edit_ingridients.setText(receivedPersonInfo.ingredients); // getting user's saved data - ingredients
+            edit_steps.setText(receivedPersonInfo.steps); // getting user's saved data - steps to follow
+            edit_foot_notes.setText(receivedPersonInfo.foot_notes); // getting user's saved data - foot notes
+            edit_nutrition_facts.setText(receivedPersonInfo.nutrition_facts); // getting user's saved data - nutrition facts
+            edit_link.setText(receivedPersonInfo.link); // getting user's saved data - web or video link
 
-            int ratings_value = adapter.getPosition(receivedPersonInfo.ratings); // getting user's saved data - business type
+            int ratings_value = adapter.getPosition(receivedPersonInfo.ratings); // getting user's saved data - ratings
             ratings.setSelection(ratings_value);
         }
 
@@ -74,7 +75,7 @@ public class edit_activity extends Activity {
             public void onClick(View v) {
 
                 String name = edit_name.getText().toString();
-                String ingridients = edit_ingridients.getText().toString();
+                String ingredients = edit_ingridients.getText().toString();
                 String steps = edit_steps.getText().toString();
                 String foot_notes = edit_foot_notes.getText().toString();
                 String nutrition_facts = edit_nutrition_facts.getText().toString();
@@ -84,14 +85,16 @@ public class edit_activity extends Activity {
 
                 int hash = Objects.hash(name);
 
-                String totalData[] = {name, ingridients, steps, foot_notes, nutrition_facts, edit_ratings, link};
-                String totalDataField[] = {"name", "ingridients", "steps", "foot_notes", "nutrition_facts", "ratings", "link"};
+                String totalData[] = {name, ingredients, steps, foot_notes, nutrition_facts, edit_ratings, link};
+                String totalDataField[] = {"name", "ingredients", "steps", "foot_notes", "nutrition_facts", "ratings", "link"};
 
                 for(int j=0; j<7; j++) {
                     emailRef.child(Integer.toString(hash)).child(totalDataField[j]).setValue(totalData[j]);
                 }
                 Toast.makeText(edit_activity.this, "Changes Saved!!", Toast.LENGTH_LONG).show();
-                finish();
+
+                Intent intent = new Intent(edit_activity.this, MainActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -104,7 +107,8 @@ public class edit_activity extends Activity {
                 int hash = Objects.hash(name);
                 emailRef.child(Integer.toString(hash)).removeValue();
                 Toast.makeText(edit_activity.this, "Recipe Deleted!!", Toast.LENGTH_LONG).show();
-                finish();
+                Intent intent = new Intent(edit_activity.this, MainActivity.class);
+                startActivity(intent);
 
             }
         });

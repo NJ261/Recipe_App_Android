@@ -61,7 +61,7 @@ public class show_details extends Activity {
             recipe_link.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-                    browserIntent.setData(Uri.parse(receivedPersonInfo.link.substring(8)));
+                    browserIntent.setData(Uri.parse(receivedPersonInfo.link));
                     startActivity(browserIntent);
                 }
             });

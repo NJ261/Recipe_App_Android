@@ -22,12 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Details of a Recipe"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:textSize="20dp"/>
 
@@ -36,13 +33,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/recipeName"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/profileTitle"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:paddingTop="10dp"
+                android:paddingStart="10dp"
                 android:textSize="18dp"/>
 
             <TextView
@@ -63,13 +60,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ingredients"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/recipeName_describe"
                 android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
+                android:paddingStart="10dp"
                 android:textSize="18dp"/>
 
             <TextView
@@ -91,12 +87,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/direction"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/ingredientsDescribe"
                 android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
+                android:paddingStart="10dp"
                 android:layout_marginTop="5dp"
                 android:textSize="18dp"/>
 
@@ -119,13 +114,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/foot_notes"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/directions_description"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:paddingStart="10dp"
                 android:textSize="18dp"/>
 
             <TextView
@@ -147,13 +141,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/neutrition_fact"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/foot_notes_describe"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="18dp"/>
 
             <TextView
@@ -175,13 +169,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ratings"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/neutrition_fact_describe"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="18dp"/>
 
             <TextView
@@ -202,13 +196,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/url"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/ratings_describe"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="18dp" />
 
             <TextView
@@ -235,8 +229,9 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="Edit"
+                android:textStyle="bold"
                 android:visibility="visible"
-                android:textSize="13sp"
+                android:textSize="15sp"
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorPrimary" />
 

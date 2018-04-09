@@ -26,7 +26,6 @@ public class create_recipe extends Activity {
     private Spinner ratings;
 
     FirebaseDatabase database;
-
     DatabaseReference emailRef;
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.nirav.assign4;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -23,7 +24,6 @@ public class MainActivity extends Activity {
     FirebaseDatabase database;
     DatabaseReference emailRef;
     private FirebaseListAdapter<Recipe> firebaseAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Recipe recipe = (Recipe) firebaseAdapter.getItem(position);
-                //showDetailView(recipe);
+                showDetailView(recipe);
             }
         });
     }
@@ -84,4 +84,9 @@ public class MainActivity extends Activity {
         }
     };
 
+    private void showDetailView(Recipe recipe){
+        Intent intent = new Intent(this, show_details.class);
+        intent.putExtra("Recipe", recipe);
+        startActivity(intent);
+    }
 }

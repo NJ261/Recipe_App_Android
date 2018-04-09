@@ -23,10 +23,11 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".search_recipe"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".edit_activity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".show_details"></activity>
     </application>
 
 </manifest>

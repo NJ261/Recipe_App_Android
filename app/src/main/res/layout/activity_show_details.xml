@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".show_details">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/profileTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Details of a Recipe"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/recipeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recipeName"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/profileTitle"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/recipeName_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/recipeName"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/ingredientsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ingredients"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/recipeName_describe"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/ingredientsDescribe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/ingredientsTitle"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/directions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/direction"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/ingredientsDescribe"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/directions_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/directions"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/foot_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/foot_notes"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/directions_description"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/foot_notes_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/foot_notes"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/neutrition_fact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/neutrition_fact"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/foot_notes_describe"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/neutrition_fact_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/neutrition_fact"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/ratings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ratings"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/neutrition_fact_describe"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/ratings_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/ratings"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/url"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/ratings_describe"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/url_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/url"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/editBtn"
+                style="@style/login_btn_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Edit"
+                android:visibility="visible"
+                android:textSize="13sp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/dummy_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toBottomOf="@+id/ratings"
+                android:textStyle="normal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp" />
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

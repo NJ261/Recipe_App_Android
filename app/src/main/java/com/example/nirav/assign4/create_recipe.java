@@ -74,9 +74,8 @@ public class create_recipe extends Activity {
                     in2 = new android.content.Intent(getBaseContext(), search_recipe.class);
                     startActivity(in2);
                     break;
-
             }
-            return false;
+            return true;
         }
     };
 

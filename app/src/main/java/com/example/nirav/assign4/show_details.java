@@ -2,9 +2,11 @@ package com.example.nirav.assign4;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -54,6 +56,17 @@ public class show_details extends Activity {
             recipe_nutrition_facts.setText(receivedPersonInfo.nutrition_facts); // getting user's saved data - nutrition facts
             recipe_ratings.setText(receivedPersonInfo.ratings); // getting user's saved data - ratings
             recipe_link.setText(receivedPersonInfo.link); // getting user's saved data - web or video link
+
+            final String temp_link = "https://" + receivedPersonInfo.link;
+
+            recipe_link.setMovementMethod(LinkMovementMethod.getInstance());
+            recipe_link.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+                    browserIntent.setData(Uri.parse(temp_link));
+                    startActivity(browserIntent);
+                }
+            });
         }
 
         editBtn.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +103,8 @@ public class show_details extends Activity {
                     startActivity(in3);
                     break;
             }
-            return false;
+
+            return true;
         }
     };
 

@@ -39,7 +39,7 @@ public class search_recipe extends Activity {
                     startActivity(in3);
                     break;
             }
-            return false;
+            return true;
         }
     };
 

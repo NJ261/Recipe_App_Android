@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
                     startActivity(in3);
                     break;
             }
-            return false;
+            return true;
         }
     };
 

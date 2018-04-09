@@ -97,7 +97,7 @@ public class create_recipe extends Activity {
         Toast.makeText(this, "Congratulations! New Recipe has been saved!", Toast.LENGTH_LONG).show();
 
         android.content.Intent in3;
-        in3 = new android.content.Intent(getBaseContext(), create_recipe.class);
+        in3 = new android.content.Intent(getBaseContext(), MainActivity.class);
         startActivity(in3);
 
     }

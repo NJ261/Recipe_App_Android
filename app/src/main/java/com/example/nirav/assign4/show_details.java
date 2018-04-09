@@ -57,13 +57,11 @@ public class show_details extends Activity {
             recipe_ratings.setText(receivedPersonInfo.ratings); // getting user's saved data - ratings
             recipe_link.setText(receivedPersonInfo.link); // getting user's saved data - web or video link
 
-            final String temp_link = "https://" + receivedPersonInfo.link;
-
             recipe_link.setMovementMethod(LinkMovementMethod.getInstance());
             recipe_link.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-                    browserIntent.setData(Uri.parse(temp_link));
+                    browserIntent.setData(Uri.parse(receivedPersonInfo.link.substring(8)));
                     startActivity(browserIntent);
                 }
             });

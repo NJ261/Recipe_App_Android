@@ -6,12 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".search_recipe">
 
-    <!--
-    <SearchView
-        android:id="@+id/simpleSearchView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" /> -->
 
+    <TextView
+        android:id="@+id/search_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search your recipe"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimary"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:textSize="24dp"/>
 
     <EditText
         android:id="@+id/search_box"
@@ -21,10 +27,12 @@
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="left"
         android:visibility="visible"
         android:textColorHint="@color/colorGray"
+        app:layout_constraintTop_toBottomOf="@+id/search_heading"
         android:hint="Search your Recipe Here"/>
 
     <ListView

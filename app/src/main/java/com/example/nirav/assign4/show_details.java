@@ -16,16 +16,21 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * Author: Nirav Jadeja
+ *
+ * This activity shows the details of a recipe
+ */
 public class show_details extends Activity {
 
     private TextView recipe_name, recipe_ingridients, recipe_steps, recipe_foot_notes, recipe_nutrition_facts, recipe_ratings, recipe_link;
 
-    Recipe receivedPersonInfo;
+    Recipe receivedPersonInfo; // accessing recipe details via recipe class
     FirebaseDatabase database;
     DatabaseReference emailRef;
     private FirebaseListAdapter<Recipe> firebaseAdapter;
 
-    private Button editBtn;
+    private Button editBtn;     // edit button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +51,9 @@ public class show_details extends Activity {
         editBtn = (Button) findViewById(R.id.editBtn);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
+        // displaying values
         if(receivedPersonInfo != null) {
             recipe_name.setText(receivedPersonInfo.name); // getting user's saved data - name
             recipe_ingridients.setText(receivedPersonInfo.ingredients); // getting user's saved data - ingredients
@@ -69,6 +73,7 @@ public class show_details extends Activity {
             });
         }
 
+        // edit button which leads to update form for the recipe
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +84,7 @@ public class show_details extends Activity {
         });
     }
 
-
+    // bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -103,10 +108,8 @@ public class show_details extends Activity {
                     startActivity(in3);
                     break;
             }
-
             return true;
         }
     };
-
 }
 

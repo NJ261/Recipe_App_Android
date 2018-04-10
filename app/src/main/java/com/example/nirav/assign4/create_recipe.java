@@ -18,13 +18,15 @@ import java.util.Objects;
 
 public class create_recipe extends Activity {
 
-    //private FirebaseData appState;
     Recipe receivedPersonInfo;
 
+    // for various input fields
     private EditText recipeTitle, ingredients, steps, foot_notes, nutrition_facts, link;
 
+    // spinner for ratings
     private Spinner ratings;
 
+    // for firebase storage
     FirebaseDatabase database;
     DatabaseReference emailRef;
 
@@ -37,9 +39,7 @@ public class create_recipe extends Activity {
         navigation.getMenu().getItem(2).setChecked(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        //receivedPersonInfo = (Recipe) getIntent().getSerializableExtra("Contact");
-        //appState = ((FirebaseData) getApplicationContext());
-
+        // firebase getting instance
         database = FirebaseDatabase.getInstance();
         emailRef = database.getReference("Recipe");
 
@@ -57,7 +57,7 @@ public class create_recipe extends Activity {
         ratings.setSelection(0);
     }
 
-
+    // bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -80,29 +80,36 @@ public class create_recipe extends Activity {
         }
     };
 
+    // create recipe button for storing information on firebase
     public void createRecipeButton(View v) {
 
-        String name = recipeTitle.getText().toString();
-        String recipe_ingredients = ingredients.getText().toString();
-        String recipe_steps = steps.getText().toString();
-        String recipe_foot_notes = foot_notes.getText().toString();
-        String recipe_nutrition_facts = nutrition_facts.getText().toString();
-        String recipe_link = link.getText().toString();
-        String recipe_ratings = ratings.getSelectedItem().toString();
+        String name = recipeTitle.getText().toString();                         // recipe title
+        String recipe_ingredients = ingredients.getText().toString();           // recipe ingredients
+        String recipe_steps = steps.getText().toString();                       // recipe steps
+        String recipe_foot_notes = foot_notes.getText().toString();             // recipe foot notes
+        String recipe_nutrition_facts = nutrition_facts.getText().toString();   // recipe nutrition facts
+        String recipe_link = link.getText().toString();                         // recipe link
+        String recipe_ratings = ratings.getSelectedItem().toString();           // recipe ratings
 
-        int hash = Objects.hash(name);
+        int hash = Objects.hash(name);                                          // for unique id based on recipe title
 
         if(name.length() > 0 && recipe_ingredients.length() > 0 && recipe_steps.length() > 0){
+            // recipe class
             Recipe recipe = new Recipe(name, recipe_ingredients, recipe_steps, recipe_foot_notes,recipe_nutrition_facts,recipe_ratings,recipe_link);
 
+            // storing in firebase
             emailRef.child(Integer.toString(hash)).setValue(recipe);
+
+            // confirmation toast
             Toast.makeText(this, "Congratulations! New Recipe has been saved!", Toast.LENGTH_LONG).show();
 
+            // starting new intent
             android.content.Intent in3;
             in3 = new android.content.Intent(getBaseContext(), MainActivity.class);
             startActivity(in3);
         }
         else{
+            // warning toast
             Toast.makeText(this, "Please fill Recipe Name, Ingredients and Steps Section and Try Again!.", Toast.LENGTH_LONG).show();
         }
     }

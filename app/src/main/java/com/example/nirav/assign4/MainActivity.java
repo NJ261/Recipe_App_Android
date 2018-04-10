@@ -15,6 +15,12 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * Author: Nirav Jadeja
+ *
+ * This is main view of the activity, it has the list of all recipes.
+ * When a user click on any recipe it opens the decription of that recipe
+ */
 public class MainActivity extends Activity {
 
     private TextView mTextMessage;
@@ -28,10 +34,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        mTextMessage = (TextView) findViewById(R.id.message); // Title of the app
 
+        // firebase access
         database = FirebaseDatabase.getInstance();
         emailRef = database.getReference("Recipe");
+
+        // for bottom navigation
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.getMenu().getItem(0).setChecked(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -55,12 +64,12 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Recipe recipe = (Recipe) firebaseAdapter.getItem(position);
-                showDetailView(recipe);
+                showDetailView(recipe); // button for opening the decription of respective recipe
             }
         });
     }
 
-
+    // Bottom Navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -83,6 +92,7 @@ public class MainActivity extends Activity {
         }
     };
 
+    // opens the decription of a recipe
     private void showDetailView(Recipe recipe){
         Intent intent = new Intent(this, show_details.class);
         intent.putExtra("Recipe", recipe);

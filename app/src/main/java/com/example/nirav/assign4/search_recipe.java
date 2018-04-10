@@ -18,6 +18,13 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * Author: Nirav Jadeja
+ *
+ * This is a search activity which has a search bar
+ * and display the result accroding to the search.
+ * A user can also open the description of a recipe from the result.
+ */
 
 // https://developer.android.com/guide/topics/search/search-dialog.html#SearchableConfiguration
 public class search_recipe extends Activity {
@@ -26,8 +33,8 @@ public class search_recipe extends Activity {
     FirebaseDatabase database;
     DatabaseReference emailRef;
     private FirebaseListAdapter<Recipe> search_firebaseAdapter;
-    private EditText search_box;
-    private String temp;
+    private EditText search_box;    //search box
+    private String temp;            // temp for string matching
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,7 @@ public class search_recipe extends Activity {
             @Override
             protected void populateView(final View v, final Recipe model, final int position) {
 
+                // text change listener for search bar
                 search_box.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -66,6 +74,8 @@ public class search_recipe extends Activity {
                     @Override
                     public void afterTextChanged(Editable s) {
                         temp = s.toString();
+
+                        // check for match in recipe title and gives the result
                         if (model.name.contains(temp)){
                             TextView recipe_name = (TextView) v.findViewById(android.R.id.text1);
                             recipe_name.setText(model.name);
@@ -92,7 +102,7 @@ public class search_recipe extends Activity {
 
     }
 
-
+    // bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -116,6 +126,7 @@ public class search_recipe extends Activity {
         }
     };
 
+    // function for opening the description of a recipe
     private void showDetailView(Recipe recipe){
         Intent intent = new Intent(this, show_details.class);
         intent.putExtra("Recipe", recipe);

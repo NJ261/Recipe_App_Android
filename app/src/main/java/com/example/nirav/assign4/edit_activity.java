@@ -19,16 +19,23 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
+/**
+ * Author: Nirav Jadeja
+ *
+ * This is for editing a recipe, it loads pre-saved values
+ * and saves modified version.
+ * It can delete a recipe too
+ */
 public class edit_activity extends Activity {
 
     private EditText edit_name, edit_ingridients, edit_steps, edit_foot_notes, edit_nutrition_facts, edit_ratings, edit_link;
 
-    Recipe receivedPersonInfo;
+    Recipe receivedPersonInfo; // accessing recipe details through class
     FirebaseDatabase database;
     DatabaseReference emailRef;
     private FirebaseListAdapter<Recipe> firebaseAdapter;
-    private Button saveBtn, deleteBtn;
-    private Spinner ratings;
+    private Button saveBtn, deleteBtn; // save changes and delete button
+    private Spinner ratings; //spinner for ratings
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,7 @@ public class edit_activity extends Activity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        // loading the saved values in the edit texts
         if(receivedPersonInfo != null) {
             edit_name.setText(receivedPersonInfo.name); // getting user's saved data - name
             edit_ingridients.setText(receivedPersonInfo.ingredients); // getting user's saved data - ingredients
@@ -70,6 +78,7 @@ public class edit_activity extends Activity {
             ratings.setSelection(ratings_value);
         }
 
+        // save button which saves the changes
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,12 +102,14 @@ public class edit_activity extends Activity {
                     for(int j=0; j<7; j++) {
                         emailRef.child(Integer.toString(hash)).child(totalDataField[j]).setValue(totalData[j]);
                     }
+                    // toast for saved changes
                     Toast.makeText(edit_activity.this, "Changes Saved!!", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(edit_activity.this, MainActivity.class);
                     startActivity(intent);
                 }
                 else{
+                    // warning toast
                     Toast.makeText(edit_activity.this, "Please fill Recipe Name, Ingredients and Steps Section and Try Again!.", Toast.LENGTH_LONG).show();
                 }
 
@@ -106,6 +117,7 @@ public class edit_activity extends Activity {
             }
         });
 
+        // delete button which delete the recipe
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,14 +125,16 @@ public class edit_activity extends Activity {
                 String name = edit_name.getText().toString();
                 int hash = Objects.hash(name);
                 emailRef.child(Integer.toString(hash)).removeValue();
+
+                // toast for deleting recipe
                 Toast.makeText(edit_activity.this, "Recipe Deleted!!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(edit_activity.this, MainActivity.class);
                 startActivity(intent);
-
             }
         });
     }
 
+    // bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 

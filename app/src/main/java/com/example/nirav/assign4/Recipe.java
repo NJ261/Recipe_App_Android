@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Author: Nirav Jadeja
+ */
 public class Recipe implements Serializable {
     public  String name;
     public  String ingredients;

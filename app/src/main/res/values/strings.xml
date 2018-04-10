@@ -13,4 +13,10 @@
     <string name="url">Web/Video Link: </string>
     <string name="newRecipe">Create a new Recipe</string>
 
+    <string name="hint_recipe"><font size="15">Create a new Recipe</font></string>
+    <string name="hint_ingredients"><font size="15">Enter the Ingredients</font></string>
+    <string name="hint_steps"><font size="15">Describe the steps for your recipe</font></string>
+    <string name="hint_foot_notes"><font size="15">Share a tip for more delicious taste such as timing or amount</font></string>
+    <string name="hint_nutrition_facts"><font size="15">Mention Nutrition Facts about the recipe</font></string>
+    <string name="hint_link"><font size="15">Save helpful Link E.g. https://www.google.ca</font></string>
 </resources>

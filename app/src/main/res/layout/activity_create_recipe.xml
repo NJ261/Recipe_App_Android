@@ -53,7 +53,7 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Enter your Recipe Name"
+                android:hint="@string/hint_recipe"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -83,7 +83,7 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Enter the Ingredients"
+                android:hint="@string/hint_ingredients"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -113,7 +113,7 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Describe the steps for your recipe"
+                android:hint="@string/hint_steps"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -143,7 +143,7 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Share a tip or advice for more delicious taste"
+                android:hint="@string/hint_foot_notes"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -173,7 +173,7 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Mention Nutrition Facts about the recipe"
+                android:hint="@string/hint_nutrition_facts"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 
@@ -229,7 +229,7 @@
                 android:background="@drawable/edittext_bottom_line"
                 android:ems="10"
                 android:gravity="left"
-                android:hint="Save helpful Link E.g. https://www.g"
+                android:hint="@string/hint_link"
                 android:visibility="visible"
                 android:textColorHint="@color/colorGray" />
 

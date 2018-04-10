@@ -6,10 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".search_recipe">
 
+    <!--
     <SearchView
         android:id="@+id/simpleSearchView"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp" /> -->
+
+
+    <EditText
+        android:id="@+id/search_box"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:gravity="left"
+        android:visibility="visible"
+        android:textColorHint="@color/colorGray"
+        android:hint="Search your Recipe Here"/>
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/search_box"
+        app:layout_constraintRight_toRightOf="parent"/>
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

@@ -92,7 +92,7 @@ public class create_recipe extends Activity {
 
         int hash = Objects.hash(name);
 
-        if(name != null && recipe_ingredients != null && recipe_steps != null){
+        if(name.length() > 0 && recipe_ingredients.length() > 0 && recipe_steps.length() > 0){
             Recipe recipe = new Recipe(name, recipe_ingredients, recipe_steps, recipe_foot_notes,recipe_nutrition_facts,recipe_ratings,recipe_link);
 
             emailRef.child(Integer.toString(hash)).setValue(recipe);

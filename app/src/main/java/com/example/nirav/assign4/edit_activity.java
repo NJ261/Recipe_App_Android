@@ -85,7 +85,7 @@ public class edit_activity extends Activity {
 
                 int hash = Objects.hash(name);
 
-                if(name != null && ingredients != null && steps != null){
+                if(name.length() > 0 && ingredients.length() > 0 && steps.length() > 0){
 
                     String totalData[] = {name, ingredients, steps, foot_notes, nutrition_facts, edit_ratings, link};
                     String totalDataField[] = {"name", "ingredients", "steps", "foot_notes", "nutrition_facts", "ratings", "link"};

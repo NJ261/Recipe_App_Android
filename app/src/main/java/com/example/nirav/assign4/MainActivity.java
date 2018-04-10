@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Recipe recipe = (Recipe) firebaseAdapter.getItem(position);
-                showDetailView(recipe); // button for opening the decription of respective recipe
+                DetailView(recipe); // button for opening the decription of respective recipe
             }
         });
     }
@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
     };
 
     // opens the decription of a recipe
-    private void showDetailView(Recipe recipe){
+    private void DetailView(Recipe recipe){
         Intent intent = new Intent(this, show_details.class);
         intent.putExtra("Recipe", recipe);
         startActivity(intent);

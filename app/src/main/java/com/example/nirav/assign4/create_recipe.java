@@ -81,7 +81,7 @@ public class create_recipe extends Activity {
     };
 
     public void createRecipeButton(View v) {
-        //each entry needs a unique ID
+
         String name = recipeTitle.getText().toString();
         String recipe_ingredients = ingredients.getText().toString();
         String recipe_steps = steps.getText().toString();
@@ -92,15 +92,18 @@ public class create_recipe extends Activity {
 
         int hash = Objects.hash(name);
 
-        Recipe recipe = new Recipe(name, recipe_ingredients, recipe_steps, recipe_foot_notes,recipe_nutrition_facts,recipe_ratings,recipe_link);
+        if(name != null && recipe_ingredients != null && recipe_steps != null){
+            Recipe recipe = new Recipe(name, recipe_ingredients, recipe_steps, recipe_foot_notes,recipe_nutrition_facts,recipe_ratings,recipe_link);
 
-        emailRef.child(Integer.toString(hash)).setValue(recipe);
-        Toast.makeText(this, "Congratulations! New Recipe has been saved!", Toast.LENGTH_LONG).show();
+            emailRef.child(Integer.toString(hash)).setValue(recipe);
+            Toast.makeText(this, "Congratulations! New Recipe has been saved!", Toast.LENGTH_LONG).show();
 
-        android.content.Intent in3;
-        in3 = new android.content.Intent(getBaseContext(), MainActivity.class);
-        startActivity(in3);
-
+            android.content.Intent in3;
+            in3 = new android.content.Intent(getBaseContext(), MainActivity.class);
+            startActivity(in3);
+        }
+        else{
+            Toast.makeText(this, "Please fill Recipe Name, Ingredients and Steps Section and Try Again!.", Toast.LENGTH_LONG).show();
+        }
     }
-
 }

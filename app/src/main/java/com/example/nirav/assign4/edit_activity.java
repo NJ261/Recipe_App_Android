@@ -85,16 +85,23 @@ public class edit_activity extends Activity {
 
                 int hash = Objects.hash(name);
 
-                String totalData[] = {name, ingredients, steps, foot_notes, nutrition_facts, edit_ratings, link};
-                String totalDataField[] = {"name", "ingredients", "steps", "foot_notes", "nutrition_facts", "ratings", "link"};
+                if(name != null && ingredients != null && steps != null){
 
-                for(int j=0; j<7; j++) {
-                    emailRef.child(Integer.toString(hash)).child(totalDataField[j]).setValue(totalData[j]);
+                    String totalData[] = {name, ingredients, steps, foot_notes, nutrition_facts, edit_ratings, link};
+                    String totalDataField[] = {"name", "ingredients", "steps", "foot_notes", "nutrition_facts", "ratings", "link"};
+
+                    for(int j=0; j<7; j++) {
+                        emailRef.child(Integer.toString(hash)).child(totalDataField[j]).setValue(totalData[j]);
+                    }
+                    Toast.makeText(edit_activity.this, "Changes Saved!!", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(edit_activity.this, MainActivity.class);
+                    startActivity(intent);
                 }
-                Toast.makeText(edit_activity.this, "Changes Saved!!", Toast.LENGTH_LONG).show();
+                else{
+                    Toast.makeText(edit_activity.this, "Please fill Recipe Name, Ingredients and Steps Section and Try Again!.", Toast.LENGTH_LONG).show();
+                }
 
-                Intent intent = new Intent(edit_activity.this, MainActivity.class);
-                startActivity(intent);
 
             }
         });

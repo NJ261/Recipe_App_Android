@@ -26,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
  * A user can also open the description of a recipe from the result.
  */
 
-// https://developer.android.com/guide/topics/search/search-dialog.html#SearchableConfiguration
 public class search_recipe extends Activity {
 
     private ListView searchView;

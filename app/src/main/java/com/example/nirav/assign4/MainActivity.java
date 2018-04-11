@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Author: Nirav Jadeja
  *
  * This is main view of the activity, it has the list of all recipes.
- * When a user click on any recipe it opens the decription of that recipe
+ * When a user click on any recipe it opens the description of that recipe
  */
 public class MainActivity extends Activity {
 
